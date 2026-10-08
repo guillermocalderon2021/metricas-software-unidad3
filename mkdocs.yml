@@ -18,6 +18,7 @@ nav:
   - Unidad III. Instrumentación y observabilidad:
       - unidad-3/index.md
       - 3.1 Observabilidad y diseño de telemetría: unidad-3/3.1-observabilidad-y-telemetria.md
+      - 3.2 Logging estructurado: unidad-3/3.2-logging-estructurado.md
 
 markdown_extensions:
   - admonition
