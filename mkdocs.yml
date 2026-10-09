@@ -19,6 +19,7 @@ nav:
       - unidad-3/index.md
       - 3.1 Observabilidad y diseño de telemetría: unidad-3/3.1-observabilidad-y-telemetria.md
       - 3.2 Logging estructurado: unidad-3/3.2-logging-estructurado.md
+      - 3.3 Prometheus e instrumentación de métricas: unidad-3/3.3-prometheus-instrumentacion-metricas.md
 
 markdown_extensions:
   - admonition
