@@ -21,6 +21,8 @@ nav:
       - 3.2 Logging estructurado: unidad-3/3.2-logging-estructurado.md
       - 3.3 Prometheus e instrumentación de métricas: unidad-3/3.3-prometheus-instrumentacion-metricas.md
       - 3.4 PromQL - Analisis de series temporales: unidad-3/3.4-promql-analisis-series-temporales.md
+      - 3.5 Dashboards y alertas: unidad-3/3.5-dashboards-alertas.md
+
 
 markdown_extensions:
   - admonition
