@@ -11,6 +11,7 @@ Requiere en MkDocs Material:
 
 **Modalidad:** parejas  
 **Valor:** 6%  
+**Fecha limite de entrega:** Jueves 29 de octubre 
 **Repositorio base:** [metricas-software-lab3-template](https://github.com/guillermocalderon2021/metricas-software-lab3-template)
 
 ## Propósito
