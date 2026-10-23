@@ -11,7 +11,8 @@ Requiere en MkDocs Material:
 
 **Modalidad:** parejas  
 **Valor:** 6%  
-**Fecha limite de entrega:** Jueves 29 de octubre 
+**Fecha limite de entrega:** Jueves 29 de octubre
+
 **Repositorio base:** [metricas-software-lab3-template](https://github.com/guillermocalderon2021/metricas-software-lab3-template)
 
 ## Propósito
@@ -323,13 +324,6 @@ Por ejemplo, una pregunta como:
 
 expresa qué se desea conocer del sistema.
 
-No debe reemplazarse por:
-
-```text
-notifications_http_requests_total
-```
-
-porque el nombre de una métrica todavía no explica qué magnitud debe obtenerse ni cómo se interpretará.
 
 ### 4.2 Columna `Señal`
 
@@ -348,21 +342,6 @@ resultado de una operación
 secuencia de eventos correlacionados
 ```
 
-Una respuesta como:
-
-```text
-Prometheus
-```
-
-es insuficiente. Prometheus es la herramienta que almacena y consulta métricas; no identifica la propiedad que se necesita observar.
-
-Una respuesta como:
-
-```text
-logs
-```
-
-también es demasiado general. Debe indicarse qué información observable aportarán esos logs.
 
 ### 4.3 Columna `Evidencia necesaria`
 
@@ -406,7 +385,6 @@ usar un Counter
 
 si la respuesta requiere además decidir qué incrementa el contador y qué dimensiones debe conservar.
 
-Tampoco escriba una consulta PromQL en esta columna. La consulta se construirá después de producir correctamente la evidencia.
 
 ### 4.5 Ejemplo de llenado
 
