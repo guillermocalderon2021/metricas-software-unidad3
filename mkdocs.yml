@@ -23,6 +23,7 @@ nav:
       - 3.4 PromQL - Analisis de series temporales: unidad-3/3.4-promql-analisis-series-temporales.md
       - 3.5 Dashboards y alertas: unidad-3/3.5-dashboards-alertas.md
       - 3.6 OpenTelemetry: unidad-3/3.6-opentelemetry.md
+      - 3.7 Trazas distribuidas y correlación de señales: unidad-3/3.7-trazas-distribuidas-correlacion-senales.md
   - Laboratorios:
       - Laboratorio 3. Instrumentación de un servicio mediante logging estructurado y métricas: labs/laboratorio-3-instrumentacion-observabilidad.md 
 
