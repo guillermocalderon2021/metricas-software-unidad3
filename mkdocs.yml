@@ -24,8 +24,11 @@ nav:
       - 3.5 Dashboards y alertas: unidad-3/3.5-dashboards-alertas.md
       - 3.6 OpenTelemetry: unidad-3/3.6-opentelemetry.md
       - 3.7 Trazas distribuidas y correlación de señales: unidad-3/3.7-trazas-distribuidas-correlacion-senales.md
+  - Unidad IV. Diagnóstico y aprendizaje operacional:
+      - 4.1 Profiling y evaluación experimental del rendimiento: unidad-4/clase-4-1.md
   - Laboratorios:
-      - Laboratorio 3. Instrumentación de un servicio mediante logging estructurado y métricas: labs/laboratorio-3-instrumentacion-observabilidad.md 
+      - Laboratorio 3. Instrumentación de un servicio mediante logging estructurado y métricas: labs/laboratorio-3-instrumentacion-observabilidad.md
+      - Laboratorio 4. Trazas distribuidas y correlación de señales: labs/laboratorio-4-trazas-correlacion.md 
 
 markdown_extensions:
   - admonition
