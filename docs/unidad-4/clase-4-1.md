@@ -194,13 +194,15 @@ La siguiente figura procede de una ejecución de `./workload quadratic 30000 30`
 
 ## 4. Evaluación comparativa de optimizaciones
 
-Una ruta predominante en un perfil identifica **dónde conviene investigar**, pero no determina automáticamente qué modificación realizar ni cuánto mejorará el programa. La decisión requiere comprender el trabajo que ejecuta la función, plantear un cambio con una predicción verificable y medir nuevamente con condiciones comparables.
+Una función que concentra una proporción elevada de las muestras de CPU merece un análisis más detallado. El perfil permite localizarla, pero es necesario examinar su implementación para comprender por qué consume tantos recursos. Cualquier optimización propuesta deberá comprobarse mediante nuevas mediciones y contrastarse con los resultados de la versión original.
 
 ### Dos implementaciones de la misma operación
 
 La demostración cuenta los valores distintos presentes en un arreglo de enteros. La implementación `quadratic` recorre los elementos anteriores para averiguar si cada valor ya apareció. En el peor caso realiza un número de comparaciones que crece de forma cuadrática con el tamaño de la entrada. La implementación `sorted` reserva memoria, copia el arreglo, ejecuta `qsort`, cuenta transiciones entre valores adyacentes y libera la memoria. **Todos esos costos pertenecen a la operación medida**; no se compara únicamente el costo de las comparaciones. Bajo las propiedades habituales de `qsort`, el enfoque se describe didácticamente por su comportamiento típico cercano a \(O(n\log n)\), **sin asumir una garantía universal de complejidad para todas las implementaciones de `qsort`**.
 
-En la demostración se investiga **primero** `quadratic` sin mostrar los resultados de `sorted`: se construye una línea base, se registra un perfil y se propone una explicación de la ruta costosa. Solo después se presenta `sorted` como posible intervención. Las variantes realizan el mismo trabajo funcional observable, pero utilizan estrategias algorítmicas diferentes. La elección permite obtener rutas de CPU reconocibles. No se utilizará el resultado para demostrar una ley universal según la cual un algoritmo de una clase de complejidad siempre vence a otro para cualquier tamaño de entrada. Las constantes, las entradas y la implementación concreta siguen importando.
+Las implementaciones `quadratic` y `sorted` resuelven el mismo problema mediante estrategias diferentes. La primera busca valores repetidos mediante comparaciones sucesivas, mientras que la segunda ordena los elementos antes de contar los valores distintos.
+
+La comparación permite estudiar cómo influye la elección del algoritmo en el tiempo de ejecución y en la distribución del trabajo de CPU. Sin embargo, las diferencias de complejidad algorítmica no determinan por sí solas cuál implementación será más rápida para una entrada específica. El tamaño y la distribución de los datos, los costos adicionales de cada estrategia y las características de su implementación también afectan el resultado.
 
 ### Cálculo e interpretación de la mejora
 
@@ -216,7 +218,11 @@ Una mejora de la operación local no implica necesariamente la misma mejora de u
 
 ### Criterios de un informe experimental
 
-El informe debe contener: pregunta y predicción; descripción de la entrada; equivalencia funcional; máquina, compilador y opciones; mediciones individuales; medidas resumen y dispersión; perfil e interpretación de sus rutas; modificación propuesta; medición posterior y límites de la conclusión. Conviene distinguir dos enunciados: «la versión B tuvo una mediana inferior en esta carga y estas ejecuciones» es una descripción de evidencia; «la versión B será más rápida en cualquier entorno» es una generalización que los datos no respaldan.
+### Documentación e interpretación de resultados
+
+Un informe de evaluación del rendimiento debe proporcionar información suficiente para reproducir el experimento y examinar la validez de sus resultados. Esto incluye la carga de trabajo utilizada, las características del entorno de ejecución, las versiones y opciones de compilación, el procedimiento de medición y los resultados individuales de cada ejecución. Cuando se comparan implementaciones, también debe comprobarse que producen resultados funcionalmente equivalentes.
+
+El análisis debe presentar las medidas de tendencia central y dispersión, interpretar los perfiles de CPU y explicar las modificaciones realizadas. Las conclusiones deben limitarse a las condiciones evaluadas. Por ejemplo, una reducción de la mediana de ejecución permite describir una mejora observada para determinada carga de trabajo, pero no demuestra que la nueva implementación sea más rápida para cualquier entrada o entorno.
 
 ## Práctica guiada en la máquina virtual oficial
 
