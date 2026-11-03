@@ -218,8 +218,6 @@ Una mejora de la operación local no implica necesariamente la misma mejora de u
 
 ### Criterios de un informe experimental
 
-### Documentación e interpretación de resultados
-
 Un informe de evaluación del rendimiento debe proporcionar información suficiente para reproducir el experimento y examinar la validez de sus resultados. Esto incluye la carga de trabajo utilizada, las características del entorno de ejecución, las versiones y opciones de compilación, el procedimiento de medición y los resultados individuales de cada ejecución. Cuando se comparan implementaciones, también debe comprobarse que producen resultados funcionalmente equivalentes.
 
 El análisis debe presentar las medidas de tendencia central y dispersión, interpretar los perfiles de CPU y explicar las modificaciones realizadas. Las conclusiones deben limitarse a las condiciones evaluadas. Por ejemplo, una reducción de la mediana de ejecución permite describir una mejora observada para determinada carga de trabajo, pero no demuestra que la nueva implementación sea más rápida para cualquier entrada o entorno.
