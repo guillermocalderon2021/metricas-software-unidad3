@@ -276,7 +276,11 @@ perf record -e cpu-clock -F 99 --call-graph fp -o perf-quadratic.data -- \
 perf report --stdio -i perf-quadratic.data
 ```
 
-Las repeticiones 20 y 400 son **valores iniciales de preparación**, no configuraciones certificadas para la VM. Si el perfil contiene pocas muestras, deben calibrarse las repeticiones internas hasta obtener una ejecución del orden de segundos sin alterar el tamaño de entrada. Es incorrecto comparar tiempos totales de ejecuciones con números distintos de repeticiones como si correspondieran a una sola operación. Para registrar la variante rápida se puede comenzar con `./workload sorted 30000 400`, verificar el tiempo transcurrido y ajustar el parámetro. Conviene comprobar también si las pilas se recuperan y si `perf` informa de pérdida de muestras. Un perfil vacío o insuficiente debe identificarse como tal, nunca interpretarse como ausencia de hotspots.
+Para obtener un perfil de CPU, la ejecución debe durar lo suficiente como para registrar una cantidad de muestras que permita analizar la distribución del trabajo entre las funciones. Si el programa termina demasiado rápido, puede aumentarse el número de repeticiones internas sin modificar el tamaño de la entrada.
+
+El número de repeticiones debe ajustarse para cada implementación, ya que sus tiempos de ejecución pueden ser considerablemente diferentes. Después de registrar el perfil, es necesario comprobar cuántas muestras obtuvo `perf`, si se produjeron pérdidas y si las pilas de llamadas pudieron reconstruirse correctamente.
+
+Las repeticiones internas permiten prolongar la ejecución para facilitar el profiling, pero no constituyen mediciones independientes. Además, los tiempos acumulados de ejecuciones con distintas cantidades de repeticiones no deben compararse directamente. Para evaluar el rendimiento de ambas implementaciones debe utilizarse un procedimiento de benchmarking con condiciones equivalentes.
 
 ### 5. Visualización de pilas y flame graph
 
@@ -292,7 +296,6 @@ La generación requiere los scripts de FlameGraph previamente instalados en la V
 
 Se ejecutarán las mismas verificaciones y se registrarán los resultados de la variante `sorted`. Se contrastarán tiempos y perfiles, procurando no introducir cambios adicionales en el entorno. La interpretación debe explicar qué cambió en el trabajo realizado por las rutas principales, qué magnitud se midió y qué queda fuera del alcance experimental.
 
-**Plan alternativo ante restricciones de la VM.** Si `perf stat` o `perf record` no funcionan, pueden conservarse las mediciones internas del programa, documentarse el error de acceso y utilizarse un perfil de referencia preparado con su procedencia identificada para ejercitar la lectura de pilas. Esto permite alcanzar parcialmente los resultados conceptuales, pero **no equivale a haber realizado profiling en esa VM**.
 
 ## Preguntas de comprobación
 
