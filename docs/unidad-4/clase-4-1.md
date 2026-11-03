@@ -174,7 +174,7 @@ Registrar muestras y reconstruir pilas requiere recursos. Aumentar la frecuencia
 
 ### Generación del flame graph de la demostración
 
-El repositorio de [Brendan Gregg, FlameGraph](https://github.com/brendangregg/FlameGraph) contiene los scripts `stackcollapse-perf.pl` y `flamegraph.pl`, que convierten la salida de `perf script` en un SVG. Para que la clase no dependa de descargas durante la sesión, los scripts deben instalarse o dejarse preparados **previamente en la VM oficial**. En el siguiente ejemplo se supone que el directorio `FlameGraph/` ya está disponible junto al programa:
+El repositorio de [Brendan Gregg, FlameGraph](https://github.com/brendangregg/FlameGraph) contiene los scripts `stackcollapse-perf.pl` y `flamegraph.pl`, que convierten la salida de `perf script` en un SVG. Clone dicho repositorio (git clone https://github.com/brendangregg/FlameGraph.git) y ejecute luego el siguiente comando:
 
 ```bash
 perf script -i perf-quadratic.data > perf-quadratic.script
@@ -182,7 +182,6 @@ perf script -i perf-quadratic.data > perf-quadratic.script
 ./FlameGraph/flamegraph.pl perf-quadratic.folded > perf-quadratic.svg
 ```
 
-Si los scripts no están presentes, la secuencia no debe ejecutarse como si fueran componentes incluidos en Linux. La lectura de un perfil preparado en el material del curso puede utilizarse como alternativa didáctica, dejando explícito que no constituye evidencia generada en esa ejecución.
 
 ### Perfil obtenido durante la preparación de la clase
 
