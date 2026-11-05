@@ -129,13 +129,6 @@ En PowerShell, el comando equivalente es `Get-Item .\io_lab.c`.
 Transfiera el archivo desde el **anfitrión**:
 
 ```bash
-scp io_lab.c student@127.0.0.1
-```
-
-
-Si la configuración de VirtualBox utiliza redirección del puerto TCP 2222 del anfitrión al puerto SSH 22 de la VM, el comando sería, **solo cuando esa redirección exista**:
-
-```bash
 scp -P 2222 io_lab.c student@127.0.0.1:~/
 ```
 
