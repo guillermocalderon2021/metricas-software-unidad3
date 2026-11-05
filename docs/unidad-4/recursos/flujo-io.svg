@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 335" role="img" aria-labelledby="title desc">
+<title id="title">Rutas de lectura y escritura de archivos en Linux</title>
+<desc id="desc">Dos recorridos ilustran la aplicación, la caché de páginas y el dispositivo. Una lectura puede usar páginas residentes o requerir obtener datos del almacenamiento; write puede modificar páginas y fsync solicita su sincronización.</desc>
+<style>
+text {font-family:DejaVu Sans,Arial,sans-serif;fill:#202a36} .hd{font-size:18px;font-weight:700} .sm{font-size:14px} .tiny{font-size:12px} .box{fill:#f5f8fc;stroke:#51677e;stroke-width:2} .cache{fill:#eaf3fb;stroke:#2b6c9b;stroke-width:2} .dev{fill:#f1f6ec;stroke:#52814b;stroke-width:2} .arrow{stroke:#344b64;stroke-width:2.5;fill:none;marker-end:url(#arr)} .sync{stroke:#9a512c;stroke-width:2;stroke-dasharray:7 5;fill:none;marker-end:url(#arr)}
+</style>
+<defs><marker id="arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0 L10 4 L0 8 Z" fill="#344b64"/></marker></defs>
+<text x="25" y="30" class="hd">Lectura de archivo</text><text x="470" y="30" class="hd">Escritura de archivo</text>
+<rect x="20" y="58" width="142" height="62" rx="9" class="box"/><text x="91" y="84" class="sm" text-anchor="middle">Aplicación</text><text x="91" y="103" class="sm" text-anchor="middle">read()</text>
+<rect x="232" y="58" width="179" height="62" rx="9" class="cache"/><text x="321" y="85" class="sm" text-anchor="middle">Page cache</text><text x="321" y="104" class="tiny" text-anchor="middle">Páginas disponibles</text>
+<rect x="232" y="217" width="179" height="62" rx="9" class="dev"/><text x="321" y="244" class="sm" text-anchor="middle">Almacenamiento</text><text x="321" y="263" class="tiny" text-anchor="middle">de bloques</text>
+<path d="M162 88 H229" class="arrow"/><text x="195" y="76" text-anchor="middle" class="tiny">lectura</text>
+<path d="M320 217 V123" class="arrow"/><text x="332" y="171" class="tiny">si faltan páginas</text>
+<text x="30" y="162" class="sm">Si los datos ya están en caché,</text><text x="30" y="181" class="sm">no se necesita otra lectura de bloques.</text>
+<rect x="469" y="58" width="145" height="62" rx="9" class="box"/><text x="542" y="84" class="sm" text-anchor="middle">Aplicación</text><text x="542" y="103" class="sm" text-anchor="middle">write()</text>
+<rect x="682" y="58" width="185" height="62" rx="9" class="cache"/><text x="775" y="84" class="sm" text-anchor="middle">Page cache</text><text x="775" y="103" class="tiny" text-anchor="middle">Páginas modificadas</text>
+<rect x="682" y="217" width="185" height="62" rx="9" class="dev"/><text x="775" y="244" class="sm" text-anchor="middle">Almacenamiento</text><text x="775" y="263" class="tiny" text-anchor="middle">de bloques</text>
+<path d="M614 88 H680" class="arrow"/><path d="M775 122 V214" class="arrow"/><text x="788" y="173" class="tiny">writeback</text>
+<path d="M542 122 V309 H775 V282" class="sync"/><text x="587" y="302" class="tiny">fsync(): solicita y espera la sincronización</text>
+</svg>
