@@ -221,7 +221,7 @@ En este pipeline, el Collector recibe OTLP, agrupa spans y los exporta hacia Jae
       - "16686:16686"
 
   otel-collector:
-    image: otel/opentelemetry-collector:0.163.0
+    image: otel/opentelemetry-collector:0.164.0
     command:
       - "--config=/etc/otelcol/config.yaml"
     volumes:
@@ -290,7 +290,7 @@ npm run build
 
 Compruebe que `package.json` y `package-lock.json` contienen los cambios y serán incluidos en el commit. No sustituya las dependencias del Laboratorio 3 por un `package.json` nuevo.
 
-**Nota técnica de esta edición:** las versiones se han cotejado con los paquetes publicados; la combinación exacta con los Dockerfiles, Pino 10 y Node 22 permanece pendiente de prueba integral docente.
+
 
 ## 5. Preparar el arranque de OpenTelemetry
 
